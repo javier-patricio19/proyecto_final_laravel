@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\RegistrarContratoController;
 use App\Http\Controllers\RegistrarPaqueteController;
+use App\Http\Controllers\UsuariosController;
+use App\Models\Paquete;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    $paquetes = Paquete::all();
+    return view('index', ['paquetes' => $paquetes]);
 })->name('index');
 
 Route::get('/Contacto', [ContactoController::class, 'mostrarcontacto'])->name('mostrarcontacto');
@@ -27,5 +31,9 @@ Route::get('/Login', [ContactoController::class, 'mostrarLogin'])->name('mostrar
 
 Route::get('/registrar-paquete', [RegistrarPaqueteController::class, 'index'])->name('registrarPaquete');
 Route::post('/registrar-paquete', [RegistrarPaqueteController::class, 'registro'])->name('registrarPaquete');
+
+Route::post('/registrar-contrato', [RegistrarContratoController::class, 'registro'])->name('registrarContrato');
+
+Route::get('/usuarios', [UsuariosController::class, 'index'])->name('mostrarUsuarios');
 
 require __DIR__ . '/auth.php';

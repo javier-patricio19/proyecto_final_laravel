@@ -24,5 +24,6 @@ class RegistrarPaqueteController extends Controller
             'tags' => $request->tags,
             'imagen' => $imagen
         ]);
+        return redirect()->route('index');
     }
 }
