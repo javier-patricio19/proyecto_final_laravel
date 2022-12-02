@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('paquetes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->integer('tipo')->default(2);
-            $table->string('imagen')->default('/imagenes/default/usuario_default.jpg');
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->string('tags');
+            $table->string('imagen')->default('/imagenes/default/paquete_default.jpg');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('paquetes');
     }
 };
