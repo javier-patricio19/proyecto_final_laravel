@@ -4,6 +4,7 @@ use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\RegistrarContratoController;
 use App\Http\Controllers\RegistrarPaqueteController;
 use App\Http\Controllers\UsuariosController;
+use App\Models\Contrato;
 use App\Models\Paquete;
 use Illuminate\Support\Facades\Route;
 
@@ -35,5 +36,12 @@ Route::post('/registrar-paquete', [RegistrarPaqueteController::class, 'registro'
 Route::post('/registrar-contrato', [RegistrarContratoController::class, 'registro'])->name('registrarContrato');
 
 Route::get('/usuarios', [UsuariosController::class, 'index'])->name('mostrarUsuarios');
+Route::get('/contrataciones', function () {
+    $contrataciones = Contrato::all();
+    return view('contrataciones', ['contrataciones' => $contrataciones]);
+})->name('mostrarContrataciones');
+
+Route::get('/eliminar-paquete/{id}', [RegistrarPaqueteController::class, 'eliminar'])->name('eliminarPaquete');
+Route::get('/eliminar-usuario/{id}', [UsuariosController::class, 'eliminar'])->name('eliminarUsuario');
 
 require __DIR__ . '/auth.php';

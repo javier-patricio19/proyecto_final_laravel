@@ -15,6 +15,7 @@ class RegistrarPaqueteController extends Controller
     {
         if ($request->imagen != null) {
             $imagen = $request->imagen;
+            $request->file('imagen')->storeAs('paquetes', $request->file('imagen')->getClientOriginalExtension(), 'public');
         } else {
             $imagen = "/imagenes/default/paquete_default.jpg";
         }
@@ -25,5 +26,14 @@ class RegistrarPaqueteController extends Controller
             'imagen' => $imagen
         ]);
         return redirect()->route('index');
+    }
+
+    public function eliminar($id)
+    {
+        $paquete = Paquete::find($id);
+        $paquete->delete();
+
+        $msg = "El paquete " . $paquete->nombre . " ha sido eliminado";
+        return redirect()->route('index')->withSuccess($msg);
     }
 }

@@ -20,4 +20,13 @@ class UsuariosController extends Controller
             'usuario_actual' => $usuario_actual
         ]);
     }
+
+    public function eliminar($id)
+    {
+        $usuario = User::find($id);
+        $usuario->delete();
+
+        $msg = "El usuario " . $usuario->name . " ha sido eliminado";
+        return redirect()->route('mostrarUsuarios')->withSuccess($msg);
+    }
 }

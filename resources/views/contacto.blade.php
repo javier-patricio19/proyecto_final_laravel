@@ -1,35 +1,24 @@
-<x-nav/>
-<h1>Información de Contacto de Empresa</h1>
-<h1>Nombre Empresa</h1>
-<h2>Picho's Luz y Sonido</h2>
-
-<h2>Ubicación</h2>
-<p>Zapotlanejo, Jalisco, México, CP: 45430</p>
-<h2>Número de Telefono</h2>
-<p>+521 33-18-85-04-86</p>
-<h2>Correo Electronico</h2>
-<p>djuliteck02@gmail.com</p>
-<h2>Redes Sociales</h2>
-<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 ">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Redes Sociales
-          </h6>
-          <p>
-            <a href="https://www.facebook.com/PICHOs18" class="text-reset"><i class="fa-brands fa-facebook" ></i></a>
-          </p>
-          <p>
-            <a href="https://www.instagram.com/djuliteck/" class="text-reset"><i class="fa-brands fa-instagram"></i></a>
-          </p>
-          <p>
-            <a href="https://Wa.me/+5213318850486/" class="text-reset"><i class="fa-brands fa-whatsapp"></i></a>
-          </p>
+<x-nav />
+<div class="h-3/4">
+    <div class="container mx-auto h-full">
+        <div class="flex flex-row h-full">
+            <div class="h-full w-3/4">
+                <img class="object-cover h-full" src="{{ asset('/imagenes/perfil.jpg') }}" alt="">
+            </div>
+            <div class="flex bg-gray-100 p-10 w-full pl-32">
+                <div class="mb-auto mt-auto w-full">
+                    <h1 class="text-3xl uppercase">Picho's Luz y Sonido</h1>
+                    <p class="font-semibold mb-5">Néstor Ulises Jiménez Pérez</p>
+                    <p>Zapotlanejo, Jalisco, México, CP: 45430</p>
+                    <p>+521 33-18-85-04-86</p>
+                    <h2>Correo Electronico</h2>
+                    <p>djuliteck02@gmail.com</p>
+                    <a href="https://Wa.me/+5213318850486/"
+                        class=" inline-block bg-black rounded-md py-3 px-7 mt-6 text-white">Contáctame</a>
+                </div>
+            </div>
         </div>
-<FontAwesomeIcon icon="fa-brands fa-facebook" />
+    </div>
+</div>
 
-
-
-
-
-
-<x-footer/>
+<x-footer />
