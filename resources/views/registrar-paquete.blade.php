@@ -1,7 +1,7 @@
 <x-nav />
 
 <div class="md:p-12 md:mx-6 w-1/3">
-    <form method="POST" action="{{ route('registrarPaquete') }}">
+    <form method="POST" enctype="multipart/form-data" action="{{ route('registrarPaquete') }}">
         @csrf
 
         <div class="mt-4">

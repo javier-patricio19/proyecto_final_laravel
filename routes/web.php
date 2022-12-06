@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactoController;
+use App\Http\Controllers\CuentaController;
 use App\Http\Controllers\RegistrarContratoController;
 use App\Http\Controllers\RegistrarPaqueteController;
 use App\Http\Controllers\UsuariosController;
@@ -43,5 +44,8 @@ Route::get('/contrataciones', function () {
 
 Route::get('/eliminar-paquete/{id}', [RegistrarPaqueteController::class, 'eliminar'])->name('eliminarPaquete');
 Route::get('/eliminar-usuario/{id}', [UsuariosController::class, 'eliminar'])->name('eliminarUsuario');
+
+Route::get('/cuenta', [CuentaController::class, 'index'])->name('modificarCuenta');
+Route::post('/cuenta', [CuentaController::class, 'modificar'])->name('modificarCuenta');
 
 require __DIR__ . '/auth.php';

@@ -1,0 +1,27 @@
+:root {
+    --nav-size: 4rem;
+    --footer-size: 20rem;
+}
+
+#nav {
+    height: var(--nav-size);
+}
+
+#footer {
+    height: var(--nav-size);
+}
+
+#main {
+    height: calc(100vh - var(--nav-size));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.izquierda {
+    justify-self: start;
+}
+
+.derecha {
+    justify-self: end;
+}

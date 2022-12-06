@@ -1,7 +1,5 @@
 <x-nav />
-
-
-<div class=" mt-16 h-full">
+<div id="main" class=" mt-16 h-full">
     <div class="flex flex-row justify-center align-items-center">
         @foreach ($paquetes as $paquete)
             <div class="max-w-sm rounded overflow-hidden shadow-lg mr-10 hover:scale-105">
@@ -13,11 +11,14 @@
                     <p></p>
                     </p>
                 </div>
-                <div class="px-6 pt-4 pb-2">
+                <div class="flex justify-between px-6 pt-4 pb-2">
                     <span
                         class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $paquete->tags }}</span>
-                    <a href="{{ route('eliminarPaquete', $paquete->id) }}"
-                        class="ml-12 hover:text-orange-700">Eliminar</a>
+                    @if (Auth::user() != null && Auth::user()->tipo == 1)
+                        <a href="{{ route('eliminarPaquete', $paquete->id) }}"
+                            class="hover:text-orange-700">Eliminar</a>
+                    @endif
+
                 </div>
             </div>
         @endforeach
@@ -34,10 +35,5 @@
         @endif
     </div>
 </div>
-
-
-
-
-
 
 <x-footer />
